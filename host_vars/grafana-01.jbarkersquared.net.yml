@@ -1,0 +1,4 @@
+# You will need to replace the variables in this file with your specifics for your target server. 
+
+prometheus_user: prometheus
+node_exporter_user: node_exporter
