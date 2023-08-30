@@ -1,9 +1,0 @@
-# You will need to replace the variables in this file with your specifics for your target server. 
-# This will be for client-side node that is being monitored by Grafana node
-
-# This user will will for node_exporter Dashboard by Prometheus
-node_exporter_user: node_exporter
-
-# Set the version here to the latest version like "1.6.1"
-# You can check these releases at https://prometheus.io/download/#node_exporter
-node_exporter_version: "1.6.1"
