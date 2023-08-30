@@ -7,10 +7,3 @@ grafana-01.jbarkersquared.net
 
 [client_nodes]
 proxmox.jbarkersquared.net
-samba-01.jbarkersquared.net
-dockerhost-01.jbarkersquared.net
-dockerhost-03.jbarkersquared.net
-dockerhost-04.jbarkersquared.net
-ansiblelab-01.jbarkersquared.net
-webhost-01.jbarkersquared.net
-plex.jbarkersquared.net
