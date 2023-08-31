@@ -1,0 +1,18 @@
+---
+
+- hosts: all
+  become: true
+  pre_tasks:
+
+  - name: Update repo cache (Ubuntu)
+    apt:
+      update_cache: yes
+    changed_when: false
+    when: ansible_distribution == "Ubuntu"
+
+# This will configure node_exporter on the client-side
+- name: Install and setup node_exporter on Client nodes
+  hosts: client_nodes
+  become: true
+  roles:
+    - node_exporter
