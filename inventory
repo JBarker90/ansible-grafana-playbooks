@@ -3,7 +3,7 @@
 # 192.168.100.12
 
 [monitoring_node]
-grafana-01.jbarkersquared.net
+grafana-01 ansible_host=192.168.30.29
 
 [client_nodes]
-proxmox.jbarkersquared.net
+proxmox ansible_host=192.168.50.40
