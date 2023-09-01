@@ -1,6 +1,6 @@
 # These are the target ProxMox servers you want to configure
-#Example:
-#192.168.100.12
+# Example:
+# 192.168.100.12
 
 [monitoring_node]
 grafana-01.jbarkersquared.net
