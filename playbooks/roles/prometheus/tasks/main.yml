@@ -1,4 +1,7 @@
 - name: Update Prometheus configuration File with Nodes
+  vars: 
+    groups:
+      - ansible_host
   blockinfile:
     path: /etc/prometheus/prometheus.yml
     block: |
@@ -6,7 +9,7 @@
           scrape_interval: 10s
           static_configs:
             - targets:
-        {% for server in groups [prometheus_node_exporter_group] %}
+        {% for server in groups %}
             - '{{ server }}:9100'
         {% endfor %}
     markers: 
