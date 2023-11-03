@@ -3,3 +3,8 @@
   tasks:
     - name: Ping all Hosts
       ping: ""
+
+- hosts: client_nodes
+  tasks:
+    - name: Ping Client Nodes
+      ping: ""
