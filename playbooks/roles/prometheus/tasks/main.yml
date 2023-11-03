@@ -12,8 +12,6 @@
         {% for server in groups %}
             - '{{ server }}:9100'
         {% endfor %}
-    marker: 
-        begin: "#### BEGIN BLOCK ####"
-        end: "#### END BLOCK ####"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK "
     backup: yes
     state: present
