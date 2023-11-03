@@ -16,4 +16,9 @@
   become: true
   roles:
     - node_exporter
+
+- name: Update configuration file on Grafana Monitoring node
+  hosts: monitoring_node
+  become: true
+  roles:
     - prometheus
