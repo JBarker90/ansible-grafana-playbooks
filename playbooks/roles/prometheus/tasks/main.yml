@@ -12,7 +12,7 @@
         {% for server in groups %}
             - '{{ server }}:9100'
         {% endfor %}
-    markers: 
+    marker: 
         begin: "#### BEGIN BLOCK ####"
         end: "#### END BLOCK ####"
     backup: yes
