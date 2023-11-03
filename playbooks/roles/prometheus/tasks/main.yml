@@ -5,11 +5,12 @@
         - job_name: "remote_collector"
           scrape_interval: 10s
           static_configs:
-            - targets: ["{{ item.ip }}:9100"]
+            - targets:
+        {% for server in groups [ansible_host] %}
+            - '{{ server }}:9100'
+        {% endfor %}
     markers: 
         begin: "#### BEGIN BLOCK ####"
         end: "#### END BLOCK ####"
     backup: yes
     state: present
-  loop:
-    - { ip: {{ ansible_host }} }
