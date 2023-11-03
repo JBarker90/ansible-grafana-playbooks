@@ -7,8 +7,8 @@
           static_configs:
             - targets: ["{{ item.ip }}:9100"]
     markers: 
-        begin: "##### BEGIN BLOCK #####"
-        end: "##### END BLOCK #####"
+        begin: "#### BEGIN BLOCK ####"
+        end: "#### END BLOCK ####"
     backup: yes
     state: present
   loop:
