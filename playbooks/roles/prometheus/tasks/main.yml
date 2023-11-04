@@ -15,3 +15,8 @@
     marker: "# {mark} ANSIBLE MANAGED BLOCK "
     backup: yes
     state: present
+
+- name: Restart Prometheus 
+  systemd: 
+    name: prometheus
+    state: started
