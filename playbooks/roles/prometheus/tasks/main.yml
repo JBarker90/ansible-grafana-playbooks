@@ -1,7 +1,4 @@
 - name: Update Prometheus configuration File with Nodes
-  vars: 
-    groups:
-      - ansible_host
   blockinfile:
     path: /etc/prometheus/prometheus.yml
     block: |
