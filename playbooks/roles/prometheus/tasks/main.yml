@@ -10,7 +10,7 @@
           static_configs:
             - targets:
         {% for server in groups %}
-            - '{{ server }}:9100'
+              - '{{ server }}:9100'
         {% endfor %}
     marker: "# {mark} ANSIBLE MANAGED BLOCK "
     backup: yes
