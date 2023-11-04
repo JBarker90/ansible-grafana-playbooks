@@ -1,9 +1,16 @@
 # These are the target ProxMox servers you want to configure
 # Example:
 #
+# INI Format
 # [monitoring_node]
 # server1  ansible_host=<YOUR-WEB-SERVER-IP>
 # server2  ansible_host=<YOUR-WEB-SERVER-IP>
+#
+# YAML
+# monitoring_node:
+#   hosts:
+#     grafana-01:
+#       ansible_host: <YOUR-WEB-SERVER-IP>
 
 [monitoring_node]
 grafana-01 ansible_host=192.168.30.29
