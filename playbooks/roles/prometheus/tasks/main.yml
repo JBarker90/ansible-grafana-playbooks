@@ -9,9 +9,14 @@
           scrape_interval: 10s
           static_configs:
             - targets:
-        {% for server in groups %}
+        {% for server in groups [prometheus_node_exporter_group] %}
               - '{{ server }}:9100'
         {% endfor %}
     marker: "# {mark} ANSIBLE MANAGED BLOCK "
     backup: yes
     state: present
+
+- name: Restart Prometheus 
+  systemd: 
+    name: prometheus
+    state: started
