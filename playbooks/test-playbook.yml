@@ -33,3 +33,18 @@
   - name: Test 2 - Show host's IP
     debug:
       msg: "{{ ansible_host }}"
+
+- hosts: monitoring_node
+  tasks:
+  - name: Test 3 - Check ansible_fqdn variable
+    debug:
+      msg: "{{ ansible_fqdn }}"
+
+  - name: Test 3 - Loop in blockinfile using ansible_fqdn
+    blockinfile:
+      path: /tmp/testdir/sample2.txt
+      block: |
+          {% for host in groups['client_node_fqdn'] %}
+            - {{ host }}:9100
+          {% endfor %}
+      marker: "#### {mark} ANSIBLE MANAGED BLOCK ####"
