@@ -6,8 +6,8 @@
           scrape_interval: 10s
           static_configs:
             - targets:
-        {% for server in groups ['client_nodes'] %}
-              - "{{ ansible_host }}:9100"
+        {% for host in groups ['client_ips'] %}
+              - "{{ host }}:9100"
         {% endfor %}
     marker: "#### {mark} ANSIBLE MANAGED BLOCK ####"
     backup: yes

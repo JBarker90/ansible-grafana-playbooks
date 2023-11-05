@@ -1,0 +1,35 @@
+---
+
+- hosts: monitoring_node
+  tasks:
+  - name: Test 1 - Show host's IP
+    debug:
+      msg: "{{ ansible_ssh_host }}"
+
+- hosts: monitoring_node
+  tasks:
+  - name: Test 1 - Show host's IP
+    debug:
+      msg: "{{ ansible_host }}"
+      msg: "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
+  
+  - name: Test 1 - Loop in blockinfile
+    blockinfile:
+      path: /tmp/testdir/sample.txt
+      block: |
+          {% for host in groups['client_ips'] %}
+            - {{ host }}:9100
+          {% endfor %}
+      marker: "#### {mark} ANSIBLE MANAGED BLOCK ####"
+
+- hosts: client_nodes
+  tasks:
+  - name: Test 2 - Show host's IP
+    debug: 
+      msg: "{{ ansible_ssh_host }}"
+
+- hosts: client_nodes
+  tasks:
+  - name: Test 2 - Show host's IP
+    debug:
+      msg: "{{ ansible_host }}"

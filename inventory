@@ -17,3 +17,7 @@ grafana-01 ansible_host=192.168.30.29
 
 [client_nodes]
 proxmox ansible_host=192.168.50.40
+
+[client_ips]
+192.168.50.40
+192.168.40.11
