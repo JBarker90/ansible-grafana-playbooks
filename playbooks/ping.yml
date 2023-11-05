@@ -1,10 +1,15 @@
 ---
-- hosts: all
+#- hosts: all
+#  tasks:
+#    - name: Ping all Hosts
+#      ping: ""
+
+- hosts: monitoring_node
   tasks:
-    - name: Ping all Hosts
+    - name: Ping "monitoring_node" Hosts
       ping: ""
 
-- hosts: client_nodes
+- hosts: client_node_fqdn
   tasks:
-    - name: Ping Client Nodes
+    - name: Ping "client_node_fqdn" Hosts
       ping: ""
