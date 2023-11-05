@@ -1,8 +1,8 @@
 ---
-#- hosts: all
-#  tasks:
-#    - name: Ping all Hosts
-#      ping: ""
+- hosts: all
+  tasks:
+    - name: Ping all Hosts
+      ping: ""
 
 - hosts: monitoring_node
   tasks:
