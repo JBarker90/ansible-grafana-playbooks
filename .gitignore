@@ -1,2 +1,2 @@
-inventory
+*.txt
 host_vars/*.yml
