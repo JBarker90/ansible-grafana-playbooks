@@ -18,7 +18,7 @@
             scrape_interval: 10s
             static_configs:
               - targets:
-          {% for host in groups ['client_node_fqdn'] %}
+          {% for host in groups ['client_nodes'] %}
                 - "{{ host }}:9100"
           {% endfor %}
     marker: "#### {mark} ANSIBLE MANAGED BLOCK ####"
