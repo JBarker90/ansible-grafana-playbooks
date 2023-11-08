@@ -13,3 +13,8 @@
   tasks:
     - name: Ping "client_nodes" Hosts
       ping: ""
+
+- hosts: localhost
+  tasks:
+    - name: Ping "ctrl-ansible" locally
+      ping: ""
