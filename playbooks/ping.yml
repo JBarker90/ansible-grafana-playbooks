@@ -9,7 +9,7 @@
     - name: Ping "monitoring_node" Hosts
       ping: ""
 
-- hosts: client_node_fqdn
+- hosts: client_nodes
   tasks:
-    - name: Ping "client_node_fqdn" Hosts
+    - name: Ping "client_nodes" Hosts
       ping: ""
