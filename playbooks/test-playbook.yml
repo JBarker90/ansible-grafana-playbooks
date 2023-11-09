@@ -2,49 +2,49 @@
 
 - hosts: monitoring_node
   tasks:
-  - name: Test 1 - Show host's IP
-    debug:
-      msg: "{{ ansible_ssh_host }}"
+    - name: Test 1 - Show host's IP
+      debug:
+        msg: "{{ ansible_ssh_host }}"
 
 - hosts: monitoring_node
   tasks:
-  - name: Test 1 - Show host's IP
-    debug:
-      msg: "{{ ansible_host }}"
-      msg: "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
-  
-  - name: Test 1 - Loop in blockinfile
-    blockinfile:
-      path: /tmp/testdir/sample.txt
-      block: |
-          {% for host in groups['client_ips'] %}
-            - {{ host }}:9100
-          {% endfor %}
-      marker: "#### {mark} ANSIBLE MANAGED BLOCK ####"
+    - name: Test 1 - Show host's IP
+      debug:
+        msg: "{{ hostvars[inventory_hostname]
+          ['ansible_default_ipv4']['address'] }}"
+
+    - name: Test 1 - Loop in blockinfile
+      blockinfile:
+        path: /tmp/testdir/sample.txt
+        block: |
+            {% for host in groups['client_ips'] %}
+              - {{ host }}:9100
+            {% endfor %}
+        marker: "#### {mark} ANSIBLE MANAGED BLOCK ####"
 
 - hosts: client_nodes
   tasks:
-  - name: Test 2 - Show host's IP
-    debug: 
-      msg: "{{ ansible_ssh_host }}"
+    - name: Test 2 - Show host's IP
+      debug:
+        msg: "{{ ansible_ssh_host }}"
 
 - hosts: client_nodes
   tasks:
-  - name: Test 2 - Show host's IP
-    debug:
-      msg: "{{ ansible_host }}"
+    - name: Test 2 - Show host's IP
+      debug:
+        msg: "{{ ansible_host }}"
 
 - hosts: monitoring_node
   tasks:
-  - name: Test 3 - Check ansible_fqdn variable
-    debug:
-      msg: "{{ ansible_fqdn }}"
+    - name: Test 3 - Check ansible_fqdn variable
+      debug:
+        msg: "{{ ansible_fqdn }}"
 
-  - name: Test 3 - Loop in blockinfile using ansible_fqdn
-    blockinfile:
-      path: /tmp/testdir/sample2.txt
-      block: |
-          {% for host in groups['client_node_fqdn'] %}
-            - {{ host }}:9100
-          {% endfor %}
-      marker: "#### {mark} ANSIBLE MANAGED BLOCK ####"
+    - name: Test 3 - Loop in blockinfile using ansible_fqdn
+      blockinfile:
+        path: /tmp/testdir/sample2.txt
+        block: |
+            {% for host in groups['client_node_fqdn'] %}
+              - {{ host }}:9100
+            {% endfor %}
+        marker: "#### {mark} ANSIBLE MANAGED BLOCK ####"
